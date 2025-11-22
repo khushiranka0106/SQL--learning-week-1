@@ -1,0 +1,133 @@
+create database if not exists SCHOOLdb;
+use SCHOOLdb;
+DROP TABLE STUDENTS;
+create table IF NOT EXISTS STUDENTS(
+student_id INT  primary key auto_increment,
+NAME VARCHAR(50),
+age int,
+class tinyint,
+section varchar(10),
+email varchar(100)
+);
+
+SELECT* FROM STUDENTS;
+
+ insert INTO STUDENTS(NAME,age,class,section,email)
+values
+('khushi',21,11,'B','KHUSHI@GMAIL.COM'),
+('Siddhi',19,10,'B','siddhi@GMAIL.COM'),
+('Aarav', 16, 9, 'A', 'aarav@gmail.com'),      
+('Riya', 17, 10, 'C', 'riya@gmail.com'),        
+('Vansh', 15, 9, 'B', 'vansh@gmail.com'),       
+('Manvi', 18, 11, 'A', 'manvi@gmail.com'),      
+('Karan', 14, 8, 'C', 'karan@gmail.com'),       
+('Mahi', 13, 7, 'B', 'mahi@gmail.com'),         
+('Arjun', 17, 11, 'A', 'arjun@gmail.com'),      
+('Sneha', 16, 10, 'B', 'sneha@gmail.com');      
+
+select name, count(*)
+from students
+group by name 
+having count(*)>1;
+
+set SQL_SAFE_UPDATES=0;
+select *from students;
+delete t1
+from students t1
+join students t2 
+on t1.name= t2.name
+and t1.student_id>t2.student_id;
+ 
+ 
+select * from students
+ where age>=15 AND section='A';
+ ALTER table STUDENTS
+ ADD MARKS INT;
+ 
+ UPDATE STUDENTS SET marks = 88 WHERE student_id = 1;
+UPDATE STUDENTS SET marks = 89 WHERE student_id = 2;
+UPDATE STUDENTS SET marks = 83 WHERE student_id = 3;
+UPDATE STUDENTS SET marks = 91 WHERE student_id = 4;
+UPDATE STUDENTS SET marks = 76 WHERE student_id = 5;
+UPDATE STUDENTS SET marks = 85 WHERE student_id = 6;
+UPDATE STUDENTS SET marks = 92 WHERE student_id = 7;
+UPDATE STUDENTS SET marks = 80 WHERE student_id = 8;
+UPDATE STUDENTS SET marks = 95 WHERE student_id = 9;
+UPDATE STUDENTS SET marks = 87 WHERE student_id = 10;
+
+select *from students 
+order by name asc;
+
+select name, marks
+from students;
+
+select email, section 
+from students
+where age>19 and marks>=70; 
+
+select age, name
+from students 
+where age <22;
+select *from students;
+alter table  students 
+add city varchar (50);
+
+ update students set city = 'jaipure' where student_id =1;
+ update students set city = 'kota'where student_id =2;
+ update students set city ='udaipure' where student_id =3;
+ update students set city = 'kota' where student_id =4;
+ update students set city = 'jaipure' where student_id =5;
+ update students set city = 'ajmer' where student_id =6;
+ update students set city = 'kota'where student_id =7;
+ update students set city = 'jaipure' where student_id =8;
+ update students set city = 'kota'where student_id =9;
+ update students set city ='udaipure' where student_id =10;
+ select *
+ from students
+ where city= 'kota';
+
+ 
+ select * 
+ from students
+ where age<19 and city= 'jaipure';
+ 
+ select*
+ from students
+ where  city in ('ajmer' ,'jaipure');
+  select*
+  from students
+  where marks in (88,91,76,86,85);
+  
+  select *
+  from students
+  order by marks desc;
+  select *
+  from students
+  order by city  ASC, name ASC;
+  
+  INSERT INTO STUDENTS (name,age,class,section,marks,city)
+  values ('aditi','20',12,'c','78','city');
+select*from students;
+delete 
+ from students
+ where student_id=4;
+ 
+ delete
+ from students
+ where city='kota';
+
+delete
+from students
+where marks<70;
+
+select*
+from students
+order by marks desc
+limit 2;
+
+
+
+
+
+
+
